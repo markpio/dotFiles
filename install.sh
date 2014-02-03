@@ -5,8 +5,12 @@ dir=~/dotFiles
 echo "Installing vim & vim-gtk..."
 sudo apt-get install vim vim-gtk
 
-echo "Backing uip old vimrc file and installing symlink..."
-mv ~/.vimrc ~/.vimrc-original
+if [ -f ~/.vimrc ]; then
+    echo "Backing up old vimrc file..."
+    mv ~/.vimrc ~/.vimrc-original
+fi
+
+echo "Making symlink to new vimrc..."
 ln -s $dir/vimrc ~/.vimrc
 
 echo "Backing uip old bashrc file and installing symlink..."
