@@ -2,7 +2,7 @@
 
 dir=~/dotFiles
 
-echo "Installing vim-gtk..."
+echo "Installing vim & vim-gtk..."
 sudo apt-get install vim vim-gtk
 
 echo "Backing uip old vimrc file and installing symlink..."
