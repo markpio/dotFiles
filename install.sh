@@ -14,8 +14,9 @@ mv ~/.bashrc ~/.bashrc-original
 ln -s $dir/bashrc ~/.bashrc
 
 echo "Installing vim color scheme..."
-if [ -d "~/.vim/colors" ]; then
-    mkdir ~/.vim/colors/
+
+if [ ! -d "~/.vim/colors" ]; then
+    mkdir -p ~/.vim/colors/
 fi
 
 cp wombat256.vim ~/.vim/colors
