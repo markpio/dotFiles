@@ -1,5 +1,5 @@
 
-syntax on=4
+syntax on
 
 set tabstop=4
 set shiftwidth=4
@@ -13,5 +13,7 @@ set cindent
 set number
 set nowrap
 set t_Co=256
+
+inoremap { {}<ESC>
 
 colorscheme wombat256
