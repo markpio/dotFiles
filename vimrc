@@ -12,8 +12,11 @@ set cindent
 
 set number
 set nowrap
+
+"Search highlighting
+set hlsearch
+nnoremap <cr> :set nohlsearch<cr>
+
+"Colors stuff
 set t_Co=256
-
-inoremap { {}<ESC>
-
 colorscheme wombat256
