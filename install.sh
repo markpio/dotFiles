@@ -2,11 +2,8 @@
 
 dir=~/dotFiles
 
-echo "Installing vim & vim-gtk..."
-sudo apt-get install gnome-panel
-
-echo "Installing vim & vim-gtk..."
-sudo apt-get install vim vim-gtk
+echo "Installing packages..."
+sudo apt-get install gnome-panel vim vim-gtk
 
 if [ -f ~/.vimrc ]; then
     echo "Backing up old vimrc file..."
