@@ -87,7 +87,7 @@ alias la='ls -A'
 alias l='ls -CF'
 
 # cp aliases
-alias cp='cp -av'
+alias cp='cp -a -v'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
