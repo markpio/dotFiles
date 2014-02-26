@@ -6,16 +6,24 @@ echo "Installing packages..."
 sudo apt-get install gnome-panel vim vim-gtk
 
 if [ -f ~/.vimrc ]; then
-    echo "Backing up old vimrc file..."
-    mv ~/.vimrc ~/.vimrc-original
+    if [ ! -h ~/.vimrc ]; then
+        echo "Backing up old vimrc file..."
+        mv ~/.vimrc ~/.vimrc-original
+
+        echo "Making symlink to new vimrc..."
+        ln -s $dir/vimrc ~/.vimrc
+    fi
 fi
 
-echo "Making symlink to new vimrc..."
-ln -s $dir/vimrc ~/.vimrc
 
-echo "Backing uip old bashrc file and installing symlink..."
-mv ~/.bashrc ~/.bashrc-original
-ln -s $dir/bashrc ~/.bashrc
+if [ ! -h ~/.bashrc ]; then
+    echo "Backing uip old bashrc file and installing symlink..."
+    mv ~/.bashrc ~/.bashrc-original
+
+    echo "Making symlink to new bashrc"
+    ln -s $dir/bashrc ~/.bashrc
+fi
+
 
 echo "Installing vim color scheme..."
 
