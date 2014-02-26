@@ -3,7 +3,7 @@
 dir=~/dotFiles
 
 echo "Installing packages..."
-sudo apt-get install gnome-panel vim vim-gtk compizconfig-settings-manager
+sudo apt-get install gnome-panel vim vim-gtk compizconfig-settings-manager ssh
 
 if [ -f ~/.vimrc ]; then
     if [ ! -h ~/.vimrc ]; then
