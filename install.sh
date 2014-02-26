@@ -3,7 +3,7 @@
 dir=~/dotFiles
 
 echo "Installing packages..."
-sudo apt-get install gnome-panel vim vim-gtk
+sudo apt-get install gnome-panel vim vim-gtk compizconfig-settings-manager
 
 if [ -f ~/.vimrc ]; then
     if [ ! -h ~/.vimrc ]; then
@@ -14,7 +14,6 @@ if [ -f ~/.vimrc ]; then
         ln -s $dir/vimrc ~/.vimrc
     fi
 fi
-
 
 if [ ! -h ~/.bashrc ]; then
     echo "Backing uip old bashrc file and installing symlink..."
