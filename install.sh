@@ -8,7 +8,7 @@ if [ "$os" == "Linux" ]; then
     echo "Installing packages..."
     sudo apt-get install gnome-panel vim vim-gtk compizconfig-settings-manager ssh
 elif [ "$os" == "Darwin" ]; then
-    $shellSettings=profile
+    shellSettings=profile
 else
     echo "Unsupported OS"
 fi
