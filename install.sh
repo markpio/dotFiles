@@ -1,28 +1,40 @@
 #!/bin/bash
 
 dir=~/dotFiles
+os=`uname`
+shellSettings=null
 
-echo "Installing packages..."
-sudo apt-get install gnome-panel vim vim-gtk compizconfig-settings-manager ssh
+if [ "$os" == "Linux" ]; then 
+    echo "Installing packages..."
+    sudo apt-get install gnome-panel vim vim-gtk compizconfig-settings-manager ssh
+elif [ "$os" == "Darwin" ]; then
+    $shellSettings=profile
+else
+    echo "Unsupported OS"
+fi
 
-if [ -f ~/.vimrc ]; then
+if [ -e ~/.vimrc ]; then
     if [ ! -h ~/.vimrc ]; then
         echo "Backing up old vimrc file..."
         mv ~/.vimrc ~/.vimrc-original
-
-        echo "Making symlink to new vimrc..."
-        ln -s $dir/vimrc ~/.vimrc
     fi
 fi
 
-if [ ! -h ~/.bashrc ]; then
-    echo "Backing uip old bashrc file and installing symlink..."
-    mv ~/.bashrc ~/.bashrc-original
+echo "Making symlink to new vimrc..."
+ln -s $dir/vimrc ~/.vimrc
 
-    echo "Making symlink to new bashrc"
-    ln -s $dir/bashrc ~/.bashrc
+if [ "$shellSettings" != "null" ]; then
+
+    if [ -e ~/.$shellSettings ]; then
+        if [ ! -h ~/.$shellSettings ]; then
+            echo "Backing up old $shellSettings file and installing symlink..."
+            mv ~/.$shellSettings ~/.$shellSettings-original
+        fi
+    fi
+
+    echo "Making symlink to new $shellSettings"
+    ln -s $dir/$shellSettings ~/.$shellSettings
 fi
-
 
 echo "Installing vim color scheme..."
 
