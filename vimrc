@@ -16,7 +16,7 @@ set nowrap
 
 "Search highlighting
 set hlsearch
-nnoremap <cr> :set nohlsearch<cr>
+nnoremap <cr> :nohlsearch<cr>
 
 "Colors stuff
 set t_Co=256
