@@ -21,3 +21,6 @@ nnoremap <cr> :nohlsearch<cr>
 "Colors stuff
 set t_Co=256
 colorscheme wombat256
+
+let @i = 'v%€ku><<'
+
