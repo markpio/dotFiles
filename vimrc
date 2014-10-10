@@ -24,3 +24,6 @@ colorscheme wombat256
 
 let @i = 'v%€ku><<'
 
+"Remap shift-J to insert a new line
+nmap <S-j> i<CR><Esc>k$
+
