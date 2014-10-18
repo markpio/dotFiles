@@ -82,12 +82,21 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -alF'
+alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
 
 # cp aliases
 alias cp='cp -a -v'
+
+function smv()
+{
+    scp $1 $2;
+
+    if [ $? == 0 ]; then
+        rm -rf $1;
+    fi
+}
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert

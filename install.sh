@@ -6,7 +6,7 @@ shellSettings=null
 
 if [ "$os" == "Linux" ]; then 
     echo "Installing packages..."
-    sudo apt-get install gnome-panel vim vim-gtk compizconfig-settings-manager ssh
+    sudo apt-get install vim ssh
 elif [ "$os" == "Darwin" ]; then
     shellSettings=profile
 else
