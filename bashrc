@@ -2,6 +2,14 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+COLOR_RESET="\[\e[0;m\]"
+COLOR_GREEN="\[\e[00;32m\]"
+COLOR_RED="\[\e[00;31m\]"
+COLOR_BLUE="\[\e[00;34m\]"
+COLOR_MAGENTA="\[\e[00;35m\]"
+COLOR_CYAN="\[\e[00;36m\]"
+COLOR_WHITE="\[\e[00;37m\]"
+
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -56,7 +64,7 @@ fi
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1="$COLOR_RED\u@\h$COLOR_RESET:[ $COLOR_CYAN\w$COLOR_MAGENTA\$(__git_ps1)$COLOR_RESET ] $ "
 fi
 unset color_prompt force_color_prompt
 
@@ -85,6 +93,7 @@ fi
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
+alias mv='mv -v'
 
 # cp aliases
 alias cp='cp -a -v'
