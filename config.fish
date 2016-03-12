@@ -14,7 +14,9 @@ function fish_prompt
     set normal
 end
 
-alias ll='ls -alF'
+alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
+alias mv='mv -v'
+alias cp='cp -a -v'
 
