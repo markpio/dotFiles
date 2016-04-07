@@ -1,4 +1,7 @@
 
+"Set shell to /bin/sh
+set shell=/bin/sh
+
 "Pathogen commands
 execute pathogen#infect()
 syntax on
@@ -37,6 +40,6 @@ colorscheme wombat256
 
 let @i = 'v%€ku><<'
 
-"Remap shift-J to insert a new line
+"Remap shift-k to insert a new line
 nmap <S-h> i<CR><Esc>k$
 
