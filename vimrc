@@ -38,8 +38,8 @@ nnoremap <cr> :nohlsearch<cr>
 set t_Co=256
 colorscheme wombat256
 
-let @i = 'v%€ku><<'
+let @i = 'v%â‚¬ku><<'
 
 "Remap shift-k to insert a new line
-nmap <S-h> i<CR><Esc>k$
+nmap <S-k> i<CR><Esc>k$
 

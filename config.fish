@@ -20,3 +20,4 @@ alias l='ls -CF'
 alias mv='mv -v'
 alias cp='cp -a -v'
 
+fish_vi_key_bindings
