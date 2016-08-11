@@ -20,6 +20,8 @@ if [ -e ~/.vimrc ]; then
     fi
 fi
 echo "Making symlink to vim files..."
+
+rm -rf ~/.vim
 ln -s $dir/vim ~/.vim
 ln -s $dir/vimrc ~/.vimrc
 
