@@ -15,15 +15,20 @@ fi
 
 if [ -e ~/.vimrc ]; then
     if [ ! -h ~/.vimrc ]; then
-        echo "Backing up old vimrc file..."
         mv ~/.vimrc ~/.vimrc-original
     fi
 fi
-echo "Making symlink to vim files..."
+
+if [ -e ~/.gitconfig ]; then
+    if [ ! -h ~/.gitconfig ]; then
+        mv ~/.vimrc ~/.vimrc-original
+    fi
+fi
 
 rm -rf ~/.vim
 ln -s $dir/vim ~/.vim
 ln -s $dir/vimrc ~/.vimrc
+ln -s $dir/gitconfig ~/.gitconfig
 
 cd $dir/vim
 git submodule init
