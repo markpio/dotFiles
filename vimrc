@@ -17,6 +17,7 @@ if filereadable(font_file)
     source ~/.vim/airline_font_setting.vim
 endif
 
+"Syntastic settigns
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
