@@ -12,8 +12,9 @@ set laststatus=2
 let g:airline_theme='powerlineish'
 let g:airline#extensions#branch#enabled = 1
 
-if filereadable("airline_font_setting.vim")
-    source airline_font_setting.vim
+let font_file = expand("~/.vim/airline_font_setting.vim")
+if filereadable(font_file)
+    source ~/.vim/airline_font_setting.vim
 endif
 
 set statusline+=%#warningmsg#
