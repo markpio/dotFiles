@@ -11,7 +11,10 @@ filetype plugin indent on
 set laststatus=2
 let g:airline_theme='powerlineish'
 let g:airline#extensions#branch#enabled = 1
-"let g:airline_powerline_fonts = 1
+
+if filereadable("airline_font_setting.vim")
+    source airline_font_setting.vim
+endif
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -23,6 +26,9 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_error_symbol = "✗"
 let g:syntastic_warning_symbol = "⚠"
+
+"Remap shift-k to insert a new line
+nmap <F2> :NERDTreeToggle<CR>
 
 "bufferline key remaps
 nmap [ :bprevious<CR>
