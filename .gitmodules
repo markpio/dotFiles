@@ -13,3 +13,6 @@
 [submodule "vim/powerline-fonts"]
 	path = vim/powerline-fonts
 	url = git://github.com/powerline/fonts
+[submodule "vim/bundle/nerdtree"]
+	path = vim/bundle/nerdtree
+	url = git://github.com/scrooloose/nerdtree.git
