@@ -9,6 +9,7 @@ COLOR_BLUE="\[\e[00;34m\]"
 COLOR_MAGENTA="\[\e[00;35m\]"
 COLOR_CYAN="\[\e[00;36m\]"
 COLOR_WHITE="\[\e[00;37m\]"
+COLOR_BROWN="\[\e[00;33m\]"
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -64,7 +65,7 @@ fi
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-    PS1="$COLOR_RED\u@\h$COLOR_RESET:[ $COLOR_CYAN\w$COLOR_MAGENTA\$(__git_ps1)$COLOR_RESET ] $ "
+    PS1="$COLOR_CYAN\u@\h$COLOR_RESET:[ $COLOR_GREEN\w$COLOR_BROWN \$(__git_ps1)$COLOR_RESET] $ "
 fi
 unset color_prompt force_color_prompt
 
