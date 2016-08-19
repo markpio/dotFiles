@@ -11,12 +11,6 @@ COLOR_CYAN="\[\e[00;36m\]"
 COLOR_WHITE="\[\e[00;37m\]"
 COLOR_BROWN="\[\e[00;33m\]"
 
-if [ -z "$__git_ps1" ]; then
-    __git_ps1=`git branch 2>/dev/null | grep '*' | sed 's/* \(.*\)/(\1) /' `
-else
-    __git_ps1=$(__git_ps1)
-fi
-
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -71,7 +65,7 @@ fi
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-    PS1="$COLOR_CYAN\u@\h$COLOR_RESET:[ $COLOR_GREEN\w$COLOR_BROWN $__git_ps1$COLOR_RESET] $ "
+    PS1="$COLOR_CYAN\u@\h$COLOR_RESET:[ $COLOR_GREEN\w$COLOR_BROWN\$(git branch 2>/dev/null | grep '*' | sed 's/* \(.*\)/ (\1)/')$COLOR_RESET] $ "
 fi
 unset color_prompt force_color_prompt
 
@@ -101,9 +95,8 @@ alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
 alias mv='mv -v'
-
-# cp aliases
 alias cp='cp -a -v'
+alias tmux='tmux -2'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -124,4 +117,9 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
+
+if command -v tmux > /dev/null; then
+    [[ !$TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
+fi
+
 
