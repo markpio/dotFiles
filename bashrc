@@ -117,9 +117,3 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
-
-if command -v tmux > /dev/null; then
-    [[ !$TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
-fi
-
-
