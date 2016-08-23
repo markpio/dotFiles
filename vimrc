@@ -11,6 +11,7 @@ filetype plugin indent on
 set laststatus=2
 let g:airline_theme='powerlineish'
 let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
 
 let font_file = expand("~/.vim/airline_font_setting.vim")
 if filereadable(font_file)
