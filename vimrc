@@ -1,6 +1,6 @@
 
-"Set shell to /bin/sh
-set shell=/bin/sh
+"Set shell to /bin/bash
+set shell=/bin/bash
 
 "Pathogen commands
 execute pathogen#infect()
@@ -47,6 +47,7 @@ set cindent
 
 set number
 set nowrap
+set incsearch
 
 "Search highlighting
 set hlsearch
