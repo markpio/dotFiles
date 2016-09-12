@@ -2,10 +2,12 @@
 "Set shell to /bin/bash
 set shell=/bin/bash
 
+syntax on
+set hidden
+filetype plugin indent on
+
 "Pathogen commands
 execute pathogen#infect()
-syntax on
-filetype plugin indent on
 
 "Airline configuration
 set laststatus=2
@@ -29,13 +31,6 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_error_symbol = "✗"
 let g:syntastic_warning_symbol = "⚠"
 
-"Remap shift-k to insert a new line
-nmap <F2> :NERDTreeToggle<CR>
-
-"bufferline key remaps
-nmap [ :bprevious<CR>
-nmap ] :bnext<CR>
-
 "Set tabs/spaces
 set tabstop=4
 set shiftwidth=4
@@ -49,17 +44,40 @@ set cindent
 set number
 set nowrap
 set incsearch
-
-"Search highlighting
 set hlsearch
-nnoremap <cr> :nohlsearch<cr>
+set showcmd
+set wildmenu
+set cursorline
 
 "Colors stuff
 set t_Co=256
 colorscheme wombat256
 
-let @i = 'v%€ku><<'
+"Search highlighting
+nnoremap <CR> :nohlsearch<CR>
 
 "Remap shift-k to insert a new line
 nmap <S-k> i<CR><Esc>k$
+
+"Remap shift-k to insert a new line
+nmap <F2> :NERDTreeToggle<CR>
+
+"buffer key remaps
+nmap [ :bprevious<CR>
+nmap ] :bnext<CR>
+nmap <silent> <leader>q :bp <BAR> sp <BAR> bn <BAR> bd <CR>
+
+"Write to protected files
+nmap <silent> <leader>w :w !sudo tee % > /dev/null <CR>
+
+"Indent and unindent a block
+nmap <silent> <leader>i >i{
+nmap <silent> <leader>u <i{
+
+"Remove trailing whitespace and tabs
+nmap <silent> <leader>s :%s/\s\+$//g <BAR> nohlsearch <BAR> w <CR> <C-o>
+nmap <silent> <leader>t :%s/\t/    /g <BAR> nohlsearch <BAR> w <CR> <C-o>
+
+"Insert a tab in normal mode
+nmap <TAB> i<TAB><ESC>l
 
