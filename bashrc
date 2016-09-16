@@ -3,7 +3,7 @@
 # for examples
 
 COLOR_RESET="\[\e[0;m\]"
-COLOR_GREEN="\[\e[00;32m\]"
+COLOR_GREEN="\[\e[01;32m\]"
 COLOR_RED="\[\e[00;31m\]"
 COLOR_BLUE="\[\e[00;34m\]"
 COLOR_MAGENTA="\[\e[00;35m\]"
