@@ -81,3 +81,7 @@ nmap <silent> <leader>t :%s/\t/    /g <BAR> nohlsearch <BAR> w <CR> <C-o>
 "Insert a tab in normal mode
 nmap <TAB> i<TAB><ESC>l
 
+"Ctags shortcuts
+nmap <silent> <leader>f <C-]>
+nmap <silent> <leader>F <C-w><C-]>
+nmap <silent> <leader>b <C-t>
