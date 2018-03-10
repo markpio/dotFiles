@@ -2,6 +2,7 @@
 "Set shell to /bin/bash
 set shell=/bin/bash
 
+set encoding=utf-8
 syntax on
 set hidden
 filetype plugin indent on
@@ -20,16 +21,8 @@ if filereadable(font_file)
     source ~/.vim/airline_font_setting.vim
 endif
 
-"Syntastic settigns
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_error_symbol = "✗"
-let g:syntastic_warning_symbol = "⚠"
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
 
 "Set tabs/spaces
 set tabstop=4
