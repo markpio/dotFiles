@@ -15,10 +15,11 @@ set laststatus=2
 let g:airline_theme='powerlineish'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#tab_nr_type= 2
 
 let font_file = expand("~/.vim/airline_font_setting.vim")
 if filereadable(font_file)
-    source ~/.vim/airline_font_setting.vim
+    source ~/.vim/airline_font_setting.viM
 endif
 
 let g:ycm_autoclose_preview_window_after_insertion = 1
@@ -56,8 +57,8 @@ nmap <S-k> i<CR><Esc>k$
 nmap <F2> :NERDTreeToggle<CR>
 
 "buffer key remaps
-nmap [ :bprevious<CR>
-nmap ] :bnext<CR>
+nmap <leader>[ :bprevious<CR>
+nmap <leader>] :bnext<CR>
 nmap <silent> <leader>q :bp <BAR> sp <BAR> bn <BAR> bd <CR>
 
 "Write to protected files
@@ -78,3 +79,4 @@ nmap <TAB> i<TAB><ESC>l
 nmap <silent> <leader>f <C-]>
 nmap <silent> <leader>F <C-w><C-]>
 nmap <silent> <leader>b <C-t>
+
