@@ -61,6 +61,10 @@ nmap <leader>[ :bprevious<CR>
 nmap <leader>] :bnext<CR>
 nmap <silent> <leader>q :bp <BAR> sp <BAR> bn <BAR> bd <CR>
 
+"tab key remaps
+nmap <silent> <leader>n :tabnext<CR>
+nmap <silent> <leader>p :tablast<CR>
+
 "Write to protected files
 nmap <silent> <leader>w :w !sudo tee % > /dev/null <CR>
 
