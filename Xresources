@@ -8,6 +8,8 @@
 #define t_fg_highlight #C6C7CB
 #define t_fg_ceiling   #FEFFFF
 
+URxvt.scrollBar: false
+
 URxvt.transparent: true
 URxvt.shading: 30
 
