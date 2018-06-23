@@ -19,7 +19,7 @@ let g:airline#extensions#tabline#tab_nr_type= 2
 
 let font_file = expand("~/.vim/airline_font_setting.vim")
 if filereadable(font_file)
-    source ~/.vim/airline_font_setting.viM
+    source ~/.vim/airline_font_setting.vim
 endif
 
 let g:ycm_autoclose_preview_window_after_insertion = 1
@@ -44,8 +44,7 @@ set wildmenu
 set cursorline
 
 "Colors stuff
-set t_Co=256
-colorscheme wombat256
+colorscheme material
 
 "Search highlighting
 nnoremap <CR> :nohlsearch<CR>
