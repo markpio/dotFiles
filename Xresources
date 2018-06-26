@@ -11,10 +11,10 @@
 URxvt.scrollBar: false
 
 URxvt.transparent: true
-URxvt.shading: 30
+URxvt.shading: 25
 
-URxvt.font:     xft:bitstream vera sans mono:size=11:antialias=true
-URxvt.boldFont: xft:bitstream vera sans mono:bold:size=11:antialias=true
+URxvt.font:     xft:Ubuntu Mono derivative Powerline:size=12:antialias=true
+URxvt.boldFont: xft:Ubuntu Mono derivative Powerline:bold:size=12:antialias=true
 
 URxvt.background: t_background
 URxvt.foreground: t_foreground
