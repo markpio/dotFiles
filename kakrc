@@ -10,13 +10,14 @@ set-option global indentwidth 4
 set-option global ui_options ncurses_assistant=none
 
 # Set tab for indenting
-map global insert <tab> '<a-;><gt>'
-map global insert <s-tab> '<a-;><lt>'
 
 # OS Clipboard interaction
 map global user p -docstring 'Paste from clipboard' '!xsel -bo<ret>uU'
 map global user y -docstring 'Copy to clipboard' '<a-|>!xsel -bi<ret>'
 map global user d -docstring 'Cut to clipboard' '!xsel -bi<ret>'
+
+# No tabs... just spaces
+map global insert <tab> "    "
 
 # Map user-q to close current buffer
 map global user q -docstring 'Close current buffer' ':delete-buffer<ret>'
@@ -30,17 +31,14 @@ map global user a -docstring 'Select all occurences of main selection' '*%s<ret>
 # map user-r to launch ranger
 map global user r -docstring 'Launch Ranger' ':ranger<ret>'
 
-# map user-g to launch gdb
-map user g -docstring 'Launch gdb" ':gdb-session-new<ret>'
-
 # map user-w to set line wrapping
-map user w -docstring 'Set line wrapping for current buffer' ':addhl buffer/ wrap<ret>'
+map global user w -docstring 'Set line wrapping for current buffer' ':addhl buffer/ wrap<ret>'
 
 # map user-f to run code formatting
 map global user f -docstring 'Run code formatting' ':format<ret>'
 
 # map user-<ret> to spawn a new kakoune client
-map user <ret> -docstring 'Open a new kak client' ':new<ret>'
+map global user <ret> -docstring 'Open a new kak client' ':new<ret>'
 
 # map user-c to ctags search
 map global user c -docstring 'Ctags-search on current selection' ':ctags-search<ret>'
@@ -54,14 +52,14 @@ hook global WinCreate .*\.(c|cc|cpp|cxx|C|h|hh|hpp|hxx)$ %{
 
   # Enable autocomplete
   clang-enable-autocomplete
-  
+
   # Set clang-format for formatting
   set window formatcmd 'clang-format'
-  
+
   # Format the code on exiting insert and saving buffer
   hook buffer InsertEnd .* %{ format }
   hook buffer BufWritePre .* %{ format }
-  
+
   # Update ctags on exiting insert mode
   hook buffer InsertEnd .* %{ ctags-generate }
 }
@@ -82,12 +80,14 @@ add-highlighter global/ line '%val{cursor_line}' default,blue
 try %{ source .kakrc.local }
 
 # Load plugin manager
-source '%val{config}/plugins/plug.kak/rc/plug.kak"
+source "%val{config}/plugins/plug.kak/rc/plug.kak"
 
 # Plugins
-plug "andreyorst/plug.kak"
 plug "alexherbo2/connect.kak"
-plug "occivink/kakoune-gdb"
+plug "andreyorst/fzf.kak" %{
+    map global normal <c-p> ': fzf-mode<ret>'
+}
+
 
 plug "andreyorst/powerline.kak" defer "powerline" %{
   powerline-seperator triangle
@@ -105,4 +105,10 @@ plug "andreyorst/tagbar.kak" defer "tagbar" %{
     remove-highlighter window/wrap
   }
 }
-  
+
+plug 'delapouite/kakoune-i3' %{
+    map global user h ':i3-new-left<ret>'
+    map global user j ':i3-new-down<ret>'
+    map global user k ':i3-new-up<ret>'
+    map global user l ':i3-new-right<ret>'
+}
