@@ -64,6 +64,16 @@ hook global WinCreate .*\.(c|cc|cpp|cxx|C|h|hh|hpp|hxx)$ %{
   hook buffer InsertEnd .* %{ ctags-generate }
 }
 
+# Hooks for python files
+hook global WinCreate .*\.py$ %{
+
+    # Set format command to autopep8
+    set window formatcmd "autopep8 -"
+
+    # Install hook to format on save
+    hook buffer BufWritePre .* %{ format }
+}
+
 # Remove trailing whitespace on buffer write
 hook global BufWritePre .* %{ try %{ execute-keys -draft \%s\h+$<ret>d } }
 
