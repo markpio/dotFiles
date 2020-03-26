@@ -9,8 +9,6 @@ set-option global indentwidth 4
 # Turn off clippy
 set-option global ui_options ncurses_assistant=none
 
-# Set tab for indenting
-
 # OS Clipboard interaction
 map global user p -docstring 'Paste from clipboard' '!xsel -bo<ret>uU'
 map global user y -docstring 'Copy to clipboard' '<a-|>!xsel -bi<ret>'
@@ -84,7 +82,7 @@ add-highlighter global/ number-lines -hlcursor
 add-highlighter global/ show-matching
 
 # Highlight the current line
-add-highlighter global/ line '%val{cursor_line}' default,blue
+add-highlighter global/ line '%val{cursor_line}' default,black
 
 # Check for local settings
 try %{ source .kakrc.local }
