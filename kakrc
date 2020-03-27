@@ -17,6 +17,9 @@ map global user d -docstring 'Cut to clipboard' '!xsel -bi<ret>'
 # No tabs... just spaces
 map global insert <tab> "    "
 
+# Shift tab unindents
+map global insert <s-tab> '<a-;><lt>'
+
 # Map user-q to close current buffer
 map global user q -docstring 'Close current buffer' ':delete-buffer<ret>'
 
