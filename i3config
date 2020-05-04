@@ -64,7 +64,6 @@ font xft:URWGothic-Book 9
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-
 # start a terminal
 bindsym $mod+Return exec kitty
 
@@ -177,6 +176,8 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+default_border pixel 3
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -205,6 +206,8 @@ bindsym $mod+r mode "resize"
 
 # Use polybar for status bar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+gaps inner 10
 
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
 set $mode_gaps Gaps: (o) outer, (i) inner
