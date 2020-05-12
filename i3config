@@ -79,7 +79,7 @@ bindsym $mod+Shift+Return exec firefox
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+d exec "rofi -show-icons -modi combi -show combi -combi-modi run,drun"
+bindsym $mod+d exec "rofi  -modi combi -show combi -combi-modi run,drun"
 
 # next and previous
 bindsym $mod+o workspace back_and_forth
