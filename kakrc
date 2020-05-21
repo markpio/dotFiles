@@ -41,6 +41,9 @@ map global insert <tab> "    "
 # Shift tab unindents
 map global insert <s-tab> '<a-;><lt>'
 
+# Auto reload open files
+set-option global autoreload true
+
 # Turn off clippy
 set-option global ui_options ncurses_assistant=none
 
