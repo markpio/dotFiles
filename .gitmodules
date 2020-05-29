@@ -31,3 +31,6 @@
 [submodule "repos/i3"]
 	path = repos/i3
 	url = https://github.com/Airblader/i3.git
+[submodule "repos/morc_menu"]
+	path = repos/morc_menu
+	url = https://github.com/Boruch-Baum/morc_menu.git
