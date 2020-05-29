@@ -122,3 +122,5 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+PATH=$PATH:/home/$USER/.cargo/bin

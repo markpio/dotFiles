@@ -19,3 +19,15 @@
 [submodule "vim/bundle/vim-gitgutter"]
 	path = vim/bundle/vim-gitgutter
 	url = git://github.com/airblade/vim-gitgutter.git
+[submodule "repos/plug.kak"]
+	path = kak/plugins/plug.kak
+	url = https://github.com/andreyorst/plug.kak.git
+[submodule "repos/kak-lsp"]
+	path = repos/kak-lsp
+	url = https://github.com/ul/kak-lsp.git
+[submodule "repos/fzf"]
+	path = repos/fzf
+	url = https://github.com/junegunn/fzf.git
+[submodule "repos/i3"]
+	path = repos/i3
+	url = https://github.com/Airblader/i3.git
