@@ -8,7 +8,6 @@ source "%val{config}/plugins/plug.kak/rc/plug.kak"
 # Plugins
 eval %sh{kak-lsp --kakoune -s $kak_session}
 lsp-enable
-lsp-auto-hover-enable
 
 plug "andreyorst/fzf.kak" %{
     map global normal <c-p> ': fzf-mode<ret>'
@@ -79,6 +78,9 @@ map global normal '<a-#>' -docstring 'Comment block' :comment-block<ret>
 
 # Hooks for C/C++ family of files
 hook global WinCreate .*\.(c|cc|cpp|cxx|C|h|hh|hpp|hxx)$ %{
+
+  # Turn on hovering with kak-lsp
+  lsp-auto-hover-enable
 
   # Set clang-format for formatting
   set window formatcmd 'clang-format'

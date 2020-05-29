@@ -28,6 +28,7 @@ packages = ["rofi",
             "pango-devel",
             "git",
             "gcc",
+            "ccls",
             "automake"]
 
 
