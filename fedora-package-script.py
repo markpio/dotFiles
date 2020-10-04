@@ -3,6 +3,8 @@
 import os
 
 packages = ["rofi",
+            "cmake",
+            "ninja-build",
             "i3lock",
             "feh",
             "kakoune",

@@ -1,6 +1,8 @@
 
 rofi.theme: glue_pro_blue
 
+Xft.dpi: 192
+
 URxvt.transparent: true
 URxvt.shading: 15
 

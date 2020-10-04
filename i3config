@@ -30,7 +30,7 @@ set $base0E #c0b7f9
 set $base0F #fcc09e
 
 # Wallpaper, needs feh
-exec --no-startup-id feh --bg-scale /home/$USER/dotfiles/wallpaper/toronto-tram.png
+exec --no-startup-id /usr/bin/feh --bg-scale $HOME/dotFiles/wallpaper/toronto-tram.png
 
 # Wifi applet, needs network manager
 exec --no-startup-id nm-applet
