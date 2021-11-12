@@ -28,7 +28,7 @@ plug 'delapouite/kakoune-i3' %{
 }
 
 # Set the color
-colorscheme gruvbox
+colorscheme gruvbox-dark
 
 # Tab stuff
 set-option global tabstop 4
