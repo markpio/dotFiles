@@ -41,9 +41,6 @@ eval %sh{ git rev-parse --is-inside-work-tree 2>/dev/null 1>/dev/null && printf 
     hook global BufReload .* %{ git show-diff }
 "}
 
-map global user l ':tmux-terminal-horizontal kak -c %val{session}<ret>' -docstring "Open a new window below"
-map global user j ':tmux-terminal-vertical kak -c %val{session}<ret>' -docstring "Open a new window beside"
-
 # Set the color
 colorscheme gruvbox-dark
 
@@ -94,7 +91,10 @@ map global normal '#' -docstring 'Comment line' :comment-line<ret>
 map global normal '<a-#>' -docstring 'Comment block' :comment-block<ret>
 
 # Hooks for C/C++ family of files
-hook global WinCreate .*\.(c|cc|cpp|cxx|C|h|hh|hpp|hxx)$ %{
+hook global WinCreate filetype=c|cpp %{
+
+    lsp-enable-window
+    lsp-auto-hover-enable
 
     # Set clang-format for formatting
     set window formatcmd 'clang-format'
@@ -105,6 +105,9 @@ hook global WinCreate .*\.(c|cc|cpp|cxx|C|h|hh|hpp|hxx)$ %{
 
 # Hooks for python files
 hook global WinSetOption filetype=python %{
+
+    lsp-enable-window
+    lsp-auto-hover-enable
 
     # Set format command to autopep8
     set window formatcmd "autopep8 -"
