@@ -3,13 +3,15 @@
 try %{ source .kakrc.local }
 
 declare-option str termcmd '/bin/zsh -e'
+
 # Load plugin manager
 source "%val{config}/plugins/plug.kak/rc/plug.kak"
+source "%val{config}/kakrc.tmux"
+# source "./kakrc.i3"
 
 # Plugins
-#eval %sh{kak-lsp --kakoune -s $kak_session}
-#lsp-enable
-#
+eval %sh{kak-lsp --kakoune -s $kak_session}
+lsp-enable
 
 plug "andreyorst/fzf.kak" %{
     map global normal <c-p> ': fzf-mode<ret>'
@@ -22,12 +24,25 @@ plug "andreyorst/powerline.kak" defer "powerline" %{
     powerline-start
 }
 
-plug 'delapouite/kakoune-i3' %{
-    map global user h ':i3-new-left<ret>' -docstring "Open a new window to the left"
-    map global user j ':i3-new-down<ret>' -docstring "Open a new window below"
-    map global user k ':i3-new-up<ret>' -docstring "Open a new window on top"
-    map global user l ':i3-new-right<ret>' -docstring "Open a new window to the right"
+set-face global InsertCursor default,green+B
+
+hook global ModeChange .*:.*:insert %{
+    set-face window PrimaryCursor InsertCursor
+    set-face window PrimaryCursorEol InsertCursor
 }
+
+hook global ModeChange .*:insert:.* %{ try %{
+    unset-face window PrimaryCursor
+    unset-face window PrimaryCursorEol
+} }
+
+eval %sh{ git rev-parse --is-inside-work-tree 2>/dev/null 1>/dev/null && printf %s "
+    hook global BufWritePost .* %{ git show-diff }
+    hook global BufReload .* %{ git show-diff }
+"}
+
+map global user l ':tmux-terminal-horizontal kak -c %val{session}<ret>' -docstring "Open a new window below"
+map global user j ':tmux-terminal-vertical kak -c %val{session}<ret>' -docstring "Open a new window beside"
 
 # Set the color
 colorscheme gruvbox-dark
@@ -68,11 +83,11 @@ map global user w -docstring 'Set line wrapping for current buffer' ':addhl buff
 # map user-f to run code formatting
 map global user f -docstring 'Run code formatting' ':format<ret>'
 
-# map user-<ret> to spawn a new kakoune client
-map global user <ret> -docstring 'Open a new kak client' ':new<ret>'
 
 # map user-e to find next error
 map global user e -docstring 'Find next error' ':lsp-find-error<ret>'
+
+map global user c -docstring 'Git checkout current file' ':git checkout %val{buffile}<ret>'
 
 # Comments
 map global normal '#' -docstring 'Comment line' :comment-line<ret>
@@ -81,15 +96,15 @@ map global normal '<a-#>' -docstring 'Comment block' :comment-block<ret>
 # Hooks for C/C++ family of files
 hook global WinCreate .*\.(c|cc|cpp|cxx|C|h|hh|hpp|hxx)$ %{
 
-  # Set clang-format for formatting
-  set window formatcmd 'clang-format'
+    # Set clang-format for formatting
+    set window formatcmd 'clang-format'
 
-  # Format the code on exiting insert and saving buffer
-  hook buffer BufWritePre .* %{ format }
+    # Format the code on exiting insert and saving buffer
+    hook buffer BufWritePre .* %{ format }
 }
 
 # Hooks for python files
-hook global WinCreate .*\.py$ %{
+hook global WinSetOption filetype=python %{
 
     # Set format command to autopep8
     set window formatcmd "autopep8 -"
@@ -97,6 +112,17 @@ hook global WinCreate .*\.py$ %{
     # Install hook to format on save
     hook buffer BufWritePre .* %{ format }
 }
+
+# Hooks for cmake files
+hook global WinSetOption filetype=cmake %{
+
+    # Set format command to autopep8
+    set window formatcmd "cmake-format -"
+
+    # Install hook to format on save
+    hook buffer BufWritePre .* %{ format }
+}
+
 
 # Remove trailing whitespace on buffer write
 hook global BufWritePre .* %{ try %{ execute-keys -draft \%s\h+$<ret>d } }
@@ -110,3 +136,6 @@ add-highlighter global/ show-matching
 # Highlight the current line
 add-highlighter global/ line '%val{cursor_line}' default,black
 
+
+# map user-<ret> to spawn a new kakoune client
+map global user <ret> -docstring 'Open a new kak client' ':new<ret>'

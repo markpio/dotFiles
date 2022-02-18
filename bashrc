@@ -123,4 +123,4 @@ fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-PATH=$PATH:/home/$USER/.cargo/bin
+PATH=$PATH:/home/$USER/.cargo/bin:/home/$USER/.local/bin
