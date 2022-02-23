@@ -61,7 +61,6 @@ set-option global autoreload true
 set-option global ui_options ncurses_assistant=none
 
 # OS Clipboard interaction
-map global user p -docstring 'Paste from clipboard' '!xsel -bo<ret>uU'
 map global user y -docstring 'Copy to clipboard' '<a-|>!xsel -bi<ret>'
 map global user d -docstring 'Cut to clipboard' '!xsel -bi<ret>'
 
@@ -80,6 +79,9 @@ map global user w -docstring 'Set line wrapping for current buffer' ':addhl buff
 # map user-f to run code formatting
 map global user f -docstring 'Run code formatting' ':format<ret>'
 
+map global user n -docstring 'Goto next function' ':lsp-next-function<ret>'
+map global user p -docstring 'Goto previous function' ':lsp-previous-function<ret>'
+map global user h -docstring 'Toggle header/source' ':clangd-switch-source-header<ret>'
 
 # map user-e to find next error
 map global user e -docstring 'Find next error' ':lsp-find-error<ret>'
