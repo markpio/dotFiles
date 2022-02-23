@@ -30,8 +30,7 @@ packages = ["rofi",
             "pango-devel",
             "git",
             "gcc",
-            "ccls",
             "automake"]
 
 
-os.system( "sudo dnf install {}".format(" ".join(packages)) );
+os.system("sudo dnf install {}".format(" ".join(packages)))
