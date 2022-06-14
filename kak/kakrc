@@ -18,8 +18,9 @@ plug "andreyorst/fzf.kak" %{
 }
 
 plug "andreyorst/powerline.kak" defer "powerline" %{
-    powerline-theme base16-gruvbox
     set-option global powerline_format 'git client session bufname filetype mode_info line_column position'
+} defer  powerline_gruvbox %{
+    powerline-theme gruvbox
 } config %{
     powerline-start
 }
