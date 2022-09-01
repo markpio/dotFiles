@@ -122,13 +122,22 @@ hook global WinSetOption filetype=python %{
 # Hooks for cmake files
 hook global WinSetOption filetype=cmake %{
 
-    # Set format command to autopep8
+    # Set format command to cmake-format
     set window formatcmd "cmake-format -"
 
     # Install hook to format on save
     hook buffer BufWritePre .* %{ format }
 }
 
+# Hooks for Rust files
+hook global WinSetOption filetype=rust %{
+
+    # Set format command to rustfmt
+    set window formatcmd "rustfmt"
+
+    # Install hook to format on save
+    hook buffer BufWritePre .* %{ format }
+}
 
 # Remove trailing whitespace on buffer write
 hook global BufWritePre .* %{ try %{ execute-keys -draft \%s\h+$<ret>d } }
