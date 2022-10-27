@@ -125,3 +125,7 @@ fi
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 PATH=$PATH:/home/$USER/.cargo/bin:/home/$USER/.local/bin
+
+. "$HOME/.cargo/env"
+
+GPG_TTY=$(tty)

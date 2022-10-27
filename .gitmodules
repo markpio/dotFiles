@@ -13,9 +13,6 @@
 [submodule "vim/bundle/nerdtree"]
 	path = vim/bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
-[submodule "vim/bundle/YouCompleteMe"]
-	path = vim/bundle/YouCompleteMe
-	url = https://github.com/Valloric/YouCompleteMe.git
 [submodule "vim/bundle/vim-gitgutter"]
 	path = vim/bundle/vim-gitgutter
 	url = git://github.com/airblade/vim-gitgutter.git
@@ -28,9 +25,3 @@
 [submodule "repos/fzf"]
 	path = repos/fzf
 	url = https://github.com/junegunn/fzf.git
-[submodule "repos/i3"]
-	path = repos/i3
-	url = https://github.com/Airblader/i3.git
-[submodule "repos/morc_menu"]
-	path = repos/morc_menu
-	url = https://github.com/Boruch-Baum/morc_menu.git
