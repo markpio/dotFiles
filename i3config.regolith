@@ -1,0 +1,5 @@
+
+# next and previous
+bindsym $mod+o workspace back_and_forth
+
+
