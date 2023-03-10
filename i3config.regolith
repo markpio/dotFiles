@@ -2,4 +2,8 @@
 # next and previous
 bindsym $mod+o workspace back_and_forth
 
+# Stacking
+bindsym $mod+s layout stacking
 
+# Scratchpad
+bindsym $mod+minus Scratchpad show
