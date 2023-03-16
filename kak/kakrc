@@ -120,13 +120,15 @@ map global normal '#' -docstring 'Comment line' :comment-line<ret>
 map global normal '<a-#>' -docstring 'Comment block' :comment-block<ret>
 
 # Hooks for C/C++ family of files
-hook global WinSetOption filetype=c|cpp %{
+hook global WinSetOption filetype=(c|cpp|objc) %{
+
+    require-module c-family
 
     lsp-enable-window
     lsp-auto-hover-enable
 
     # Set clang-format for formatting
-    set window formatcmd 'clang-format'
+    set-option window formatcmd 'clang-format'
 
     # Format the code on exiting insert and saving buffer
     hook buffer BufWritePre .* %{ format }
