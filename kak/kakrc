@@ -13,6 +13,7 @@ source "%val{config}/kakrc.tmux"
 eval %sh{kak-lsp --kakoune -s $kak_session}
 lsp-enable
 
+# Plugins
 plug "andreyorst/fzf.kak" %{
     map global normal <c-p> ': fzf-mode<ret>'
 }
@@ -66,8 +67,13 @@ eval %sh{ git rev-parse --is-inside-work-tree 2>/dev/null 1>/dev/null && printf 
     hook global BufReload .* %{ git show-diff }
 "}
 
-map global normal K Kx
-map global normal J Jx
+hook global RegisterModified '"' %{ %sh{
+    if [ -n "$DISPLAY" ]; then
+        printf %s "$kak_main_reg_dquote" | xsel --input --clipboard
+    elif [ -n "$TMUX"]; then
+        tmux set-buffer -- "$kak_main_reg_dquote"
+    fi
+}}
 
 # Tab stuff
 set-option global tabstop 4
