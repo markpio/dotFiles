@@ -75,6 +75,10 @@ hook global RegisterModified '"' %{ %sh{
     fi
 }}
 
+define-command build %{
+    evaluate-commands -try-client build_output make
+}
+
 # Tab stuff
 set-option global tabstop 4
 set-option global indentwidth 4
@@ -101,7 +105,7 @@ map global user d -docstring 'Cut to clipboard' '!xsel -bi<ret>'
 map global user q -docstring 'Close current buffer' ':delete-buffer<ret>'
 
 # Map user-m to make
-map global user m -docstring 'Make' %{ :evaluate-commands -try-client build_output make<ret> }
+map global user m -docstring 'Make' ':build<ret>'
 
 # map user-a to select all occurences of main selection
 map global user a -docstring 'Select all occurences of main selection' '*%s<ret>'
