@@ -1,6 +1,11 @@
 
 live_config_reload = true
 
+[window]
+opacity = 0.9
+padding = { x = 10, y = 10}
+
 [font]
+normal = { family = "Droid Sans Mono for Powerline", style = "Regular" }
 size = 12.5
 builtin_box_drawing = true
