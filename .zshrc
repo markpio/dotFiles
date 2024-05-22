@@ -1,3 +1,9 @@
+# Path to oh-my-zsh install
+export ZSH="$HOME/.oh-my-zsh"
+source $ZSH/oh-my-zsh.sh
+
+# Load plugins
+plugins=(git zsh-autosuggestion)
 
 autoload -Uz vcs_info
 autoload -Uz compinit && compinit
