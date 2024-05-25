@@ -3,7 +3,7 @@ export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 
 # Load plugins
-plugins=(git zsh-autosuggestion)
+plugins=(git zsh-autosuggestions)
 
 autoload -Uz vcs_info
 autoload -Uz compinit && compinit
@@ -17,7 +17,7 @@ bindkey '^ ' forward-word
 
 # Format the vcs_info_msg_0_ variable
 zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:git:*' formats " %{%F[red]%}(%b)%f"
+zstyle ':vcs_info:git:*' formats " %{%F{red}%}(%b)%f"
 
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
@@ -25,7 +25,7 @@ precmd_functions+=( precmd_vcs_info )
 # Set up the prompt (with git branch name)
 setopt prompt_subst
 
-prompt='%F{cyan}%n@%m%f:[ %F{blue}%d%f ]${vcs_info_msg_0_}] $ '
+prompt='%F{cyan}%n@%m%f:[ %F{blue}%d%f ]${vcs_info_msg_0_} $ '
 
 alias ll='ls -l'
 alias mv='mv -v'
