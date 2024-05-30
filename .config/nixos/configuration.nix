@@ -49,8 +49,8 @@
 	windowManager.i3 = {
 		enable = true;
 		extraPackages = with pkgs; [
-    			dmenu
-    			i3status
+    			rofi
+    			polybar
 			i3lock
 			i3blocks
 		];
@@ -94,7 +94,9 @@
  	pkgs.git
 	pkgs.i3
 	pkgs.kakoune
-	pkgs.firefox-unwrapped
+	pkgs.firefox
+	pkgs.alacritty
+	pkgs.feh
 ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -107,7 +109,7 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
