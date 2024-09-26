@@ -151,7 +151,7 @@ hook global WinSetOption filetype=python %{
     lsp-auto-hover-enable
 
     # Set format command to autopep8
-    set window formatcmd "autopep8 -"
+    set-option window formatcmd "autopep8 -"
 
     # Install hook to format on save
     hook buffer BufWritePre .* %{ format }
