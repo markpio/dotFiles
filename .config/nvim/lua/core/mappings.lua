@@ -1,0 +1,22 @@
+
+vim.g.mapleader = " "
+vim.keymap.set( "n", "-", vim.cmd.Ex )
+
+-- Telescope bindings
+local telescope_builtin = require( 'telescope.builtin' )
+
+vim.keymap.set( 'n', '<leader>fw', telescope_builtin.live_grep, { desc = 'Telescope live grep' } )
+vim.keymap.set( 'n', '<leader>ff', telescope_builtin.find_files, { desc = 'Telescope find files' } )
+vim.keymap.set( 'n', '<leader>fz', telescope_builtin.current_buffer_fuzzy_find, { desc = 'Telescope Fuzzy Find in current buffer' } )
+vim.keymap.set( 'n', '<leader>gs', telescope_builtin.git_status, { desc = 'Telescope git status' } )
+
+-- Splits
+vim.keymap.set( 'n', '<leader>-', '<cmd>sp<CR>', { desc = 'Horizontal split' } )
+vim.keymap.set( 'n', '<leader>\\', '<cmd>vsp<CR>', { desc = 'Vertical split' } )
+
+vim.keymap.set( 'n', '<leader>h', '<cmd>wincmd h<CR>', { desc = 'Move left' } )
+vim.keymap.set( 'n', '<leader>l', '<cmd>wincmd l<CR>', { desc = 'Move right' } )
+vim.keymap.set( 'n', '<leader>j', '<cmd>wincmd j<CR>', { desc = 'Move down' } )
+vim.keymap.set( 'n', '<leader>k', '<cmd>wincmd k<CR>', { desc = 'Move up' } )
+
+

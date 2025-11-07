@@ -4,6 +4,6 @@
 [push]
     default = simple
 [core]
-    editor = kak
+    editor = nvim
 [init]
-	defaultBranch = main
+    defaultBranch = main
