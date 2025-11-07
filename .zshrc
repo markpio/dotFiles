@@ -17,7 +17,7 @@ bindkey '^ ' forward-word
 
 # Format the vcs_info_msg_0_ variable
 zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:git:*' formats " %{%F{red}%}(%b)%f"
+zstyle ':vcs_info:git:*' formats " %{%F{green}%}(%b)%f"
 
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
@@ -33,6 +33,6 @@ alias cp='cp -a -v'
 alias tmux='tmux -2'
 alias make='make -j$(($(nproc)-1))'
 
-alias dotfiles="git --git-dir=$HOME/.dotFiles/ --work-tree=$HOME/"
+alias config="git --git-dir=$HOME/.dotFiles/ --work-tree=$HOME/"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
