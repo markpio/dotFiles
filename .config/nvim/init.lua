@@ -12,6 +12,7 @@ Plug( "vim-airline/vim-airline")
 Plug( "vim-airline/vim-airline-themes")
 Plug( "folke/tokyonight.nvim")
 Plug( "tpope/vim-fugitive")
+Plug( "neovim/nvim-lspconfig")
 
 vim.call( 'plug#end' )
 
@@ -84,6 +85,7 @@ vim.api.nvim_create_autocmd( "BufWritePre", { pattern = '', command = ":%s/\\s\\
 -- Remove all tabs and replace with 4 spaces
 vim.api.nvim_create_autocmd( "BufWritePre", { pattern = '', command = ":%s/\\t/    /e" } )
 
+vim.lsp.enable('clangd')
 require( "core.mappings" )
 
 
