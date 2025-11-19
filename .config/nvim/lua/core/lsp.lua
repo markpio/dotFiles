@@ -66,3 +66,14 @@ vim.lsp.config('clangd', {
 capabilities = capabilities
 })
 vim.lsp.enable('clangd')
+
+vim.api.nvim_create_autocmd("CursorHold", {
+  callback = function()
+    vim.diagnostic.open_float(nil, {
+      focus = false,      -- do not steal focus
+      border = "rounded", -- optional
+      scope = "line",     -- show only diagnostics for the current line
+    })
+  end,
+})
+vim.o.updatetime = 250  -- default is 4000ms; 250ms feels snappy
