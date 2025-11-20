@@ -83,6 +83,12 @@ vim.api.nvim_create_autocmd( { "BufEnter", "CursorHold", "CursorHoldI", "FocusGa
         command = ":silent !clang-format -i %"
     })
 
+-- Python Formatting
+vim.api.nvim_create_autocmd( "BufWritepost", {
+    pattern = { '*.py' },
+    command = ":silent ! autopep8 -i %"
+})
+
 -- CMake format
 vim.api.nvim_create_autocmd( "BufWritepost", {
     pattern = { '*.cmake', 'CMakeLists.txt' },

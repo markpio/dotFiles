@@ -22,4 +22,5 @@ vim.keymap.set( 'n', '<leader>l', '<cmd>wincmd l<CR>', { desc = 'Move right' } )
 vim.keymap.set( 'n', '<leader>j', '<cmd>wincmd j<CR>', { desc = 'Move down' } )
 vim.keymap.set( 'n', '<leader>k', '<cmd>wincmd k<CR>', { desc = 'Move up' } )
 
-
+-- git
+vim.keymap.set( 'n', '<leader>co', '<cmd>Git checkout %<CR>', { desc = 'Git Checkout current file' } )
