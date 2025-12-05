@@ -12,6 +12,7 @@ Plug( "vim-airline/vim-airline")
 Plug( "vim-airline/vim-airline-themes")
 Plug( "folke/tokyonight.nvim")
 Plug( "tpope/vim-fugitive")
+Plug( "lewis6991/gitsigns.nvim")
 
 --- LSP Plugins
 Plug( "nvim-lua/plenary.nvim")
@@ -103,5 +104,6 @@ vim.api.nvim_create_autocmd( "BufWritePre", { pattern = '', command = ":%s/\\t/ 
 
 require( "core.mappings" )
 require( "core.lsp" )
+require( "core.git-signs" )
 
 

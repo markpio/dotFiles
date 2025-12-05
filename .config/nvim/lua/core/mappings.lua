@@ -3,6 +3,7 @@ vim.g.mapleader = " "
 
 vim.keymap.set( "n", "-", vim.cmd.Ex )
 vim.keymap.set( 'n', '<CR>', "<CMD>nohl<CR>", { desc = 'Clear highlighting' } )
+vim.keymap.set( 'n', '<leader>x', "<CMD>bdelete<CR>", { desc = 'Close current buffer' } )
 
 -- Telescope bindings
 local telescope_builtin = require( 'telescope.builtin' )

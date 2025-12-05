@@ -34,5 +34,6 @@ alias tmux='tmux -2'
 alias make='make -j$(($(nproc)-1))'
 
 alias config="git --git-dir=$HOME/.dotFiles/ --work-tree=$HOME/"
+alias extract_tar="tar -xvzf"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
