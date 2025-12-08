@@ -13,6 +13,7 @@ Plug( "vim-airline/vim-airline-themes")
 Plug( "folke/tokyonight.nvim")
 Plug( "tpope/vim-fugitive")
 Plug( "lewis6991/gitsigns.nvim")
+Plug( "ellisonleao/gruvbox.nvim")
 
 --- LSP Plugins
 Plug( "nvim-lua/plenary.nvim")
@@ -27,7 +28,9 @@ Plug ('hrsh7th/vim-vsnip')
 
 vim.call( 'plug#end' )
 
-vim.cmd[[colorscheme tokyonight]]
+vim.o.background = "dark"
+vim.cmd[[colorscheme gruvbox]]
+vim.g.airline_theme = "base16_gruvbox_dark_hard"
 
 vim.opt.number = true
 vim.opt.tabstop = 4
