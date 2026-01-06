@@ -14,7 +14,6 @@ vim.keymap.set( 'n', '<leader>fb', telescope_builtin.buffers, { desc = 'Telescop
 vim.keymap.set( 'n', '<leader>fz', telescope_builtin.current_buffer_fuzzy_find, { desc = 'Telescope Fuzzy Find in current buffer' } )
 vim.keymap.set( 'n', '<leader>fc', telescope_builtin.colorscheme, { desc = 'Telescope color schemes' } )
 
-vim.keymap.set( 'n', '<leader>gs', telescope_builtin.git_status, { desc = 'Telescope git status' } )
 
 -- Splits
 vim.keymap.set( 'n', '<leader>-', '<cmd>sp<CR>', { desc = 'Horizontal split' } )
@@ -28,5 +27,13 @@ vim.keymap.set( 'n', '<leader>k', '<cmd>wincmd k<CR>', { desc = 'Move up' } )
 vim.keymap.set( 'v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selected text up' } )
 vim.keymap.set( 'v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move selected text down' } )
 
+-- LSP
+vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = 'LSP Code Action' })
+vim.keymap.set('v', '<leader>ca', function()
+  vim.lsp.buf.code_action()
+end, { desc = 'LSP Code Action (Visual Range)' })
+vim.keymap.set( 'n', '<leader>gd', "<cmd>lua vim.lsp.buf.declaration()<cr>", { desc = 'Goto Declaration' } )
+
 -- git
+vim.keymap.set( 'n', '<leader>gs', telescope_builtin.git_status, { desc = 'Telescope git status' } )
 vim.keymap.set( 'n', '<leader>co', '<cmd>Git checkout %<CR>', { desc = 'Git Checkout current file' } )
