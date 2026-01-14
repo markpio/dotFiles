@@ -70,6 +70,8 @@ vim.g[ 'airline#entension#branch#enabled '] = 1
 vim.g[ 'airline#entension#tabline#enabled '] = 1
 vim.g[ 'airline#entension#tabline#tab_nr_type '] = 2
 
+vim.api.nvim_create_user_command( 'W', 'write', {} )
+
 -- Autoreload file when it changes on disk
 vim.opt.autoread = true;
 vim.api.nvim_create_autocmd( { "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
