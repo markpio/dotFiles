@@ -15,6 +15,9 @@ vim.keymap.set( 'n', '<leader>fb', telescope_builtin.buffers, { desc = 'Telescop
 vim.keymap.set( 'n', '<leader>fz', telescope_builtin.current_buffer_fuzzy_find, { desc = 'Telescope Fuzzy Find in current buffer' } )
 vim.keymap.set( 'n', '<leader>fc', telescope_builtin.colorscheme, { desc = 'Telescope color schemes' } )
 
+-- Toggle comment
+vim.keymap.set('n', '<leader>3', 'gcc', { remap = true, desc = "Toggle comment line" })
+vim.keymap.set('v', '<leader>3', 'gc', { remap = true, desc = "Toggle comment selection" })
 
 -- Splits
 vim.keymap.set( 'n', '<leader>-', '<cmd>sp<CR>', { desc = 'Horizontal split' } )
