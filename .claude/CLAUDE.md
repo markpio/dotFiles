@@ -15,6 +15,7 @@ Always use the `config` alias, never plain `git`.
 | NixOS configs | [docs/nixos.md](docs/nixos.md) |
 | Commit conventions | [docs/commit-conventions.md](docs/commit-conventions.md) |
 | Safe editing guidelines | [docs/safe-editing.md](docs/safe-editing.md) |
+| Slash command templates | [docs/command-templates.md](docs/command-templates.md) |
 
 ## Agents
 
