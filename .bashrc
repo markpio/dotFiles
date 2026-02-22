@@ -33,8 +33,10 @@ shopt -s checkwinsize
 # match all files and zero or more directories and subdirectories.
 #shopt -s globstar
 
-# Remap caps to escape
-setxkbmap -option "caps:escape"
+# Remap caps to escape (Linux only)
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    setxkbmap -option "caps:escape"
+fi
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"

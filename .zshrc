@@ -9,8 +9,10 @@ autoload -Uz vcs_info
 autoload -Uz compinit && compinit
 autoload -U colors && colors
 
-# Remap caps to escape
-setxkbmap -option "caps:escape"
+# Remap caps to escape (Linux only)
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    setxkbmap -option "caps:escape"
+fi
 
 # Make CTRL + space partial accept autosuggestions
 bindkey '^ ' forward-word
@@ -31,7 +33,6 @@ alias ll='ls -l'
 alias mv='mv -v'
 alias cp='cp -a -v'
 alias tmux='tmux -2'
-alias make='make -j$(($(nproc)-1))'
 
 alias config="git --git-dir=$HOME/.dotFiles/ --work-tree=$HOME/"
 alias extract_tar="tar -xvzf"
