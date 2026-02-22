@@ -9,16 +9,16 @@ You are the orchestrator for this bare-git dotfiles repository. Your job is to c
 
 ## Repository Fundamentals
 
-Work tree: `$HOME/`. Bare repo: `~/.dotFiles/`. Always use the `config` alias:
+Work tree: `$HOME/`. Bare repo: `~/.dotFiles/`. Always use the full git command with dotfiles-specific flags:
 
 ```sh
-config status
-config add ~/.zshrc
-config commit -m "feat(zsh): add docker alias"
-config push
+git --git-dir=$HOME/.dotFiles/ --work-tree=$HOME/ status
+git --git-dir=$HOME/.dotFiles/ --work-tree=$HOME/ add ~/.zshrc
+git --git-dir=$HOME/.dotFiles/ --work-tree=$HOME/ commit -m "feat(zsh): add docker alias"
+git --git-dir=$HOME/.dotFiles/ --work-tree=$HOME/ push
 ```
 
-Never use plain `git` for dotfile operations. See `~/.claude/docs/git-workflow.md` for details.
+Never use plain `git` or the `config` alias for dotfile operations. Always use the full command as shown above. See `~/.claude/docs/git-workflow.md` for details.
 
 ---
 
@@ -36,7 +36,7 @@ When a task involves a config area that has a specialist agent, **always delegat
 **Delegation workflow:**
 1. Invoke the appropriate sub-agent with full context about the change needed.
 2. Review the output for correctness and style consistency.
-3. Stage and commit the changed files yourself using the `config` alias.
+3. Stage and commit the changed files yourself using the full git command: `git --git-dir=$HOME/.dotFiles/ --work-tree=$HOME/`.
 
 ---
 
@@ -92,6 +92,6 @@ For any change:
 - [ ] Identify the config area and whether a specialist agent applies
 - [ ] Make or delegate the change
 - [ ] Verify no startup errors (for Neovim: open `nvim`; for NixOS: rebuild first)
-- [ ] Stage with `config add <files>`
+- [ ] Stage with `git --git-dir=$HOME/.dotFiles/ --work-tree=$HOME/ add <files>`
 - [ ] Commit with the correct type and scope
 - [ ] If a new doc or agent was added, update `~/.claude/CLAUDE.md`
