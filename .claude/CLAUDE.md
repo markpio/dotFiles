@@ -22,6 +22,7 @@ Sub-agents in `~/.claude/agents/` — invoke by name for specialized tasks.
 
 | Agent | Purpose |
 |---|---|
+| `dotfiles-manager` | Primary orchestrator: repo changes, doc management, delegates to specialists |
 | `architecture-advisor` | Greenfield systems design: diagrams, ADRs, API contracts |
 | `cmake-architect` | CMake build configuration for C++ projects |
 | `nvim-config` | Editing and extending this Neovim Lua config safely |
