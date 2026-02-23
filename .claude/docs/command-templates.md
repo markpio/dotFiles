@@ -2,6 +2,25 @@
 
 Reusable slash command templates organized by language and domain. Copy these into project-specific `.claude/commands/` directories.
 
+## Global vs Project Commands
+
+**Global commands** (`~/.claude/commands/`):
+- Available to ALL projects automatically
+- Generic, work with any git project
+- Examples: `/release` (semantic versioning for any repo)
+- No project-specific paths or documentation references
+
+**Project commands** (`.claude/commands/` in each project):
+- Specific to a single project
+- Copied/customized from command-templates
+- Reference project-specific paths, docs, build systems
+- Override global commands if same name exists
+
+**Command templates** (`~/.claude/command-templates/`):
+- Starting points for creating project commands
+- Copy and customize per project
+- Not directly executable (just templates)
+
 ## Directory Structure
 
 ```
@@ -87,7 +106,8 @@ Language-agnostic commands:
 - `/docs` — Generate/update documentation
 - `/todo` — List TODO/FIXME comments
 - `/search` — Smart codebase search with context
-- `/release` — Manage spec and source releases with version proposals
+- `/release` — Manage project-specific releases (spec/source) with version proposals
+  - Note: A simpler generic `/release` is available globally in `~/.claude/commands/` for standard semantic versioning
 
 ## Best Practices
 

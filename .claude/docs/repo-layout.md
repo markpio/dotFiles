@@ -31,6 +31,7 @@ Work tree root is `$HOME/`. Key tracked paths:
 │
 └── .claude/
     ├── agents/                       # sub-agents — see agents table in CLAUDE.md
+    ├── commands/                     # global slash commands (available to all projects)
     ├── command-templates/            # reusable slash command templates for new projects
     └── docs/                         # this documentation
 ```
