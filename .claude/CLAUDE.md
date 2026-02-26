@@ -29,3 +29,4 @@ Sub-agents in `~/.claude/agents/` — invoke by name for specialized tasks.
 | `architecture-advisor` | Greenfield systems design: diagrams, ADRs, API contracts |
 | `cmake-architect` | CMake build configuration for C++ projects |
 | `nvim-config` | Editing and extending this Neovim Lua config safely |
+| `plan-git` | VCS operations for role-based planning: branching, commits, worktrees, releases |
