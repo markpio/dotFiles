@@ -106,6 +106,7 @@ Language-agnostic commands:
 - `/docs` — Generate/update documentation
 - `/todo` — List TODO/FIXME comments
 - `/search` — Smart codebase search with context
+- `/plan-roles` — Scaffold role-based planning agents (architect, backend, UI, tester, docs, build) with per-project access control
 - `/release` — Manage project-specific releases (spec/source) with version proposals
   - Note: A simpler generic `/release` is available globally in `~/.claude/commands/` for standard semantic versioning
 
