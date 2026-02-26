@@ -40,7 +40,7 @@ Map the role-matrix.md glob patterns to the actual project layout. For example:
 - A Go project: backend WRITE = `cmd/**`, `internal/**`, `pkg/**`
 - A Python project: backend WRITE = `src/**`, `lib/**`; tester WRITE = `tests/**`, `*_test.py`
 - A web project: UI WRITE = `src/components/**`, `src/pages/**`, `public/**`
-- Git role: WRITE = `.gitignore`, `.gitattributes`, `CHANGELOG.md`, `VERSION`, `release-notes/**`
+- Git role: WRITE = `.gitignore`, `.gitattributes`, `CHANGELOG.md`, `VERSION`, `.version`, `release-notes/**`
 
 ### Step 5: Scaffold Agent Files
 
