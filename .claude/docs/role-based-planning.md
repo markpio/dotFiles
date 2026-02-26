@@ -1,8 +1,8 @@
 # Role-Based Planning Agents — Constitution
 
-Multi-agent planning system with 6 specialized roles, strict file ownership, and information barriers. Each role has controlled read/write access enforced via MUST/NEVER constraints.
+Multi-agent planning system with 7 specialized roles, strict file ownership, and information barriers. Each role has controlled read/write access enforced via MUST/NEVER constraints.
 
-## The 6 Roles
+## The 7 Roles
 
 | Role | Agent | Color | Responsibility |
 |---|---|---|---|
@@ -12,6 +12,7 @@ Multi-agent planning system with 6 specialized roles, strict file ownership, and
 | Tester | `plan-tester` | red | Writes tests from API spec + docs. **NO read access to implementation source.** |
 | Docs | `plan-docs` | green | READMEs, usage guides, API docs. Reads **only** design artifacts — **NO source or tests.** |
 | Build | `plan-build` | cyan | Build configs only: CMake, Make, compiler flags, deps. No CI/CD, no infra. |
+| Git | `plan-git` | orange | Branching strategy, commits, push/pull, worktrees, releases, changelogs. **No file content changes** — only VCS operations and version-control artifacts. |
 
 ## Information Flow
 
@@ -27,6 +28,11 @@ Architect ──produces──▶ API Spec + Design Artifacts
     ▼                                  ▲          │
  Build (build                          └── reads ─┘
   configs only)
+
+All roles ──produce changes──▶ Git (commits/branches/tags) ──▶ Repository
+                                  ▲
+                          Architect assigns
+                          branching strategy
 ```
 
 ## Access Control
@@ -40,6 +46,7 @@ Full matrix in [role-matrix.md](role-matrix.md).
 - **Docs from specs**: Documentation reflects intended design, not implementation details. Stable across refactors.
 - **UI separation**: Shared types/DTOs between backend and UI go through the architect. No direct coupling.
 - **Architect orchestrates**: Decomposes tasks with `[role]` assignments, reviews cross-boundary changes.
+- **Git packages, never modifies**: The git agent runs VCS operations and edits VCS artifacts (`CHANGELOG.md`, `VERSION`, `.gitignore`, `.gitattributes`). It never modifies source, tests, docs, UI, or build files.
 
 ## Orchestration Protocol
 
@@ -50,6 +57,7 @@ The architect decomposes work into tasks tagged with role assignments:
 - [ui] Build registration form consuming POST /users
 - [tester] Write tests for POST /users from spec
 - [docs] Document user registration flow
+- [git] Create feature/user-registration branch and commit completed work
 ```
 
 ## Delegation Requests

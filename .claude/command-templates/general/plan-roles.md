@@ -22,7 +22,7 @@ Analyze the current project to determine:
 
 ### Step 3: Ask User Which Roles to Include
 
-Present the 6 roles and ask which to scaffold. Not all projects need all roles:
+Present the 7 roles and ask which to scaffold. Not all projects need all roles:
 
 | Role | Agent | When to include |
 |---|---|---|
@@ -32,6 +32,7 @@ Present the 6 roles and ask which to scaffold. Not all projects need all roles:
 | Tester | `plan-tester` | Projects with a test suite |
 | Docs | `plan-docs` | Projects needing documentation |
 | Build | `plan-build` | Projects with non-trivial build configs |
+| Git | `plan-git` | Projects needing coordinated branching, commits, or releases |
 
 ### Step 4: Customize Glob Patterns
 
@@ -39,6 +40,7 @@ Map the role-matrix.md glob patterns to the actual project layout. For example:
 - A Go project: backend WRITE = `cmd/**`, `internal/**`, `pkg/**`
 - A Python project: backend WRITE = `src/**`, `lib/**`; tester WRITE = `tests/**`, `*_test.py`
 - A web project: UI WRITE = `src/components/**`, `src/pages/**`, `public/**`
+- Git role: WRITE = `.gitignore`, `.gitattributes`, `CHANGELOG.md`, `VERSION`, `release-notes/**`
 
 ### Step 5: Scaffold Agent Files
 
