@@ -108,7 +108,7 @@ Language-agnostic commands:
 - `/search` — Smart codebase search with context
 - `/plan-roles` — Scaffold role-based planning agents (architect, backend, UI, tester, docs, build) with per-project access control
 - `/release` — Manage project-specific releases (spec/source) with version proposals
-  - Note: A simpler generic `/release` is available globally in `~/.claude/commands/` for standard semantic versioning
+  - Note: The global `/git-release` command (`~/.claude/commands/git-release.md`) provides a comprehensive release workflow with changelog generation, version file bumps, and branch management for any repo
 
 ## Best Practices
 
